@@ -32,9 +32,21 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'devise'
+gem 'haml'
+gem 'html2haml'
+gem 'factory_girl'
+gem 'faker'
+gem 'rails-i18n', '~> 4.0.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'selenium-webdriver'
 end
 
 group :development do

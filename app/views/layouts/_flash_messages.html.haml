@@ -1,0 +1,3 @@
+- if flash.present?
+  - flash.each do |label, message|
+    = render "layouts/flash_message", label: label, message: message if message.present?

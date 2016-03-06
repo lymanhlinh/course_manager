@@ -1,0 +1,6 @@
+- if student_signed_in?
+  = link_to "Sign out", destroy_student_session_path, method: :delete
+- else
+  = link_to 'Sign in', new_student_session_path
+  .question You are student?
+  = link_to "Sign up", new_student_registration_path
