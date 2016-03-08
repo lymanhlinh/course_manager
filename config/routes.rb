@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :redactors
+  devise_for :accountants
+  devise_for :lectures
   devise_for :students
 
   root "homes#index"

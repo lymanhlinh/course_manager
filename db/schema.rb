@@ -11,7 +11,131 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160306035937) do
+ActiveRecord::Schema.define(version: 20160308161116) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "accountants", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "accountants", ["email"], name: "index_accountants_on_email", unique: true, using: :btree
+  add_index "accountants", ["reset_password_token"], name: "index_accountants_on_reset_password_token", unique: true, using: :btree
+
+  create_table "class_rooms", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "max_num_of_students"
+    t.integer  "lecture_id"
+    t.integer  "class_room_id"
+    t.integer  "redactor_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "courses", ["class_room_id"], name: "index_courses_on_class_room_id", using: :btree
+  add_index "courses", ["lecture_id"], name: "index_courses_on_lecture_id", using: :btree
+  add_index "courses", ["redactor_id"], name: "index_courses_on_redactor_id", using: :btree
+
+  create_table "courses_students", id: false, force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "student_id"
+  end
+
+  add_index "courses_students", ["course_id"], name: "index_courses_students_on_course_id", using: :btree
+  add_index "courses_students", ["student_id"], name: "index_courses_students_on_student_id", using: :btree
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "document_type"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "course_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "documents", ["course_id"], name: "index_documents_on_course_id", using: :btree
+
+  create_table "lectures", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "lectures", ["email"], name: "index_lectures_on_email", unique: true, using: :btree
+  add_index "lectures", ["reset_password_token"], name: "index_lectures_on_reset_password_token", unique: true, using: :btree
+
+  create_table "lesson_videos", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "lecture_id"
+    t.integer  "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "lesson_videos", ["lecture_id"], name: "index_lesson_videos_on_lecture_id", using: :btree
+  add_index "lesson_videos", ["lesson_id"], name: "index_lesson_videos_on_lesson_id", using: :btree
+
+  create_table "lessons", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "index"
+    t.integer  "course_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "lessons", ["course_id"], name: "index_lessons_on_course_id", using: :btree
+
+  create_table "redactors", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "redactors", ["email"], name: "index_redactors_on_email", unique: true, using: :btree
+  add_index "redactors", ["reset_password_token"], name: "index_redactors_on_reset_password_token", unique: true, using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,7 +156,7 @@ ActiveRecord::Schema.define(version: 20160306035937) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "students", ["email"], name: "index_students_on_email", unique: true
-  add_index "students", ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
+  add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree
+  add_index "students", ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
 
 end

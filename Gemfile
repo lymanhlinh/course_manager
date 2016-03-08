@@ -38,6 +38,7 @@ gem 'html2haml'
 gem 'factory_girl'
 gem 'faker'
 gem 'rails-i18n', '~> 4.0.0'
+gem 'paperclip'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -45,8 +46,6 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
-  gem 'rspec-rails', '~> 3.0'
-  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -57,3 +56,9 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'simplecov', :require => false
+end
