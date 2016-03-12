@@ -40,11 +40,11 @@
               = f.label "Phone"
             .col-all-10
               = f.text_field :phone_number, placeholder: 'Phone number', class: 'phone_number'
-          .row.captcha-row
-            .col-all-2
-              %span Captcha
-            .col-all-10
-              = recaptcha_tags
+          -#.row.captcha-row
+          -#  .col-all-2
+          -#    %span Captcha
+          -#  .col-all-10
+          -#    = recaptcha_tags
         .button-div
           .col-all-6.cancel-button-div
             = link_to "Cancel", :back, class: 'cancel-link'
