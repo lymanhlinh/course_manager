@@ -1,5 +1,5 @@
 $ ->
-  $('#datetimepicker').datetimepicker
+  $('.datetimepicker').datetimepicker
     viewMode: 'years'
     format: 'DD/MM/YYYY'
     minDate: '1/1/1900'
