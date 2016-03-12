@@ -1,0 +1,29 @@
+.login_form.dropdown
+  %a.dropdown-toggle.login-link{ "data-toggle" => "dropdown", href: "#" }
+    %span login
+    %b.caret
+  %ul.login-dp.dropdown-menu.bullet.pull-right
+    %li
+      .row
+        .col-md-12
+          = form_for(:student, as: Student, url: session_path(Student)) do |f|
+            .form-group
+              = f.email_field :email, autofocus: true, class: "form-control"
+            .form-group
+              = f.password_field :password, autocomplete: "off", class: "form-control"
+            .row
+              .col-md-7.forgot-password-div
+                = link_to "Forgot password", new_student_password_path(Student), class: "forget-password-link"
+              .send-button-div.col-md-5.no-padding-right
+                =  f.submit "Send", class: "send-button-short", id: "send_button"
+          %hr
+          .login-facebook-div
+            = button_to "", nil, { class: "login-facebook-button" }
+        .col-md-12.register-advise-div
+          .register-text-div
+            %span.register_question Are you not registered yet?
+            %br
+            %span In just few steps you can have easy join of our unlimited courses
+          %hr
+          .register-link-div
+            = link_to "Register", new_student_registration_path

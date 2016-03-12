@@ -1,0 +1,77 @@
+@import "variables";
+
+.login_form {
+
+  .login-dp {
+    border: solid 1px $light-silver-color;
+    min-width: 300px;
+    padding: 20px 14px 0;
+    background-color: white;
+
+    .form-control {
+      border-radius: 0;
+      height: 39px;
+    }
+
+    .g-recaptcha { margin-bottom: 10px; }
+  }
+
+  hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .login-link {
+    //background-color: $light-orange-color !important;
+    color: black !important;
+    text-decoration: none !important;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 0;
+  }
+
+  .forget-password-link { font-size: 14px; }
+
+  .login-facebook-div {
+    text-align: center;
+
+    .login-facebook-button {
+      border: none;
+      width: 200px;
+      height: 52px;
+      background: url("login-facebook.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .register-advise-div {
+    background-color: $light-color;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    border-left: solid 1px $light-silver-color;
+    border-right: solid 1px $light-silver-color;
+
+    .register-text-div {
+      padding-left: 10px;
+      .register_question {
+        color: $red-orange-color !important;
+      }
+    }
+
+    .register-link-div {
+      text-align: right;
+      padding-bottom: 10px;
+
+      a {
+        font-size: 14px;
+        line-height: 20px !important;
+        color: $red-orange-color !important;
+        text-decoration: none !important;
+      }
+    }
+  }
+}
+
+.forgot-password-page { padding-bottom: 40px; }

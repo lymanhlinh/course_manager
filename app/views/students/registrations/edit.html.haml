@@ -1,0 +1,54 @@
+#register_form.container
+  .row
+    .col-lg-6.col-md-7.col-sm-8.col-xs-12
+      .page-guide-div
+        .page-title Edit profile
+      .edit_profile_guide_div
+        %span.edit_profile_guide If the box of new password and password confirmation are empty, the password won't change.
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = devise_error_messages!
+        .content-div
+          .row
+            .col-all-2
+              = f.label "Full name"
+            .col-all-10
+              = f.text_field :full_name, autofocus: true, placeholder: 'Full name', value: current_student.full_name
+          .row
+            .col-all-2
+              = f.label :email
+            .col-all-10
+              = f.email_field :email, autofocus: false, placeholder: "@"
+          .row
+            .col-all-2
+              = f.label :password, value: "New password"
+            .col-all-10
+              = f.password_field :password, autocomplete: "off"
+          .row
+            .col-all-2
+              = f.label :password_confirmation, value: "Confirm Password"
+            .col-all-10
+              = f.password_field :password_confirmation, autocomplete: "off"
+          .row
+            .col-all-2
+              = f.label :current_password
+            .col-all-10
+              = f.password_field :current_password, autocomplete: "off"
+          .row
+            .col-all-2
+              = f.label :birth_day, value: "Birth day"
+            .col-all-10
+              #datetimepicker.input-group.date
+                = f.text_field :birth_day, placeholder: 'dd/mm/yyyy'
+                %span.input-group-addon
+                  %span.glyphicon.glyphicon-calendar
+          .row
+            .col-all-2
+              = f.label :phone_number, value: "phone"
+            .col-all-10
+              = f.text_field :phone_number, placeholder: 'Phone number'
+        .button-div
+          .col-all-2.cancel-button-div
+            = link_to "Cancel", '#', class: "cancel-link"
+          .col-all-10.send-button-div.no-padding-right
+            .actions
+              = f.submit "Save", class: "send-button-long", id: "send_button"

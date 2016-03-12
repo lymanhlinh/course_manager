@@ -1,0 +1,336 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-datetimepicker";
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+//@import "social-share-button";
+@import "variables";
+//@import "jquery.bootstrap-touchspin";
+//@import "dropdowns-enhancement";
+//@import "bootstrap-dialog";
+
+body {
+  font-family: $common-font;
+}
+
+.devise_error_div {
+  padding: 10px 0 0 0;
+
+  ul {
+    padding-left: 20px;
+
+    li { color: red; }
+  }
+}
+
+.flash-messages {
+  display: none;
+}
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-alert {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+
+::-moz-placeholder { color:  #e5e5e5; }
+
+.form { margin-bottom: 20px; }
+
+.page-title {
+  font-size: 17px;
+  color: $green-color;
+  font-weight: bold;
+}
+
+.page-description {
+  margin-top: 12px;
+  font-size: 14px;
+  color: $gray-color;
+}
+
+.page-guide-div {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: block;
+  align-items: baseline;
+}
+
+.header-div {
+  color: white;
+  margin-top: 20px;
+  background-color: $gray-color;
+  padding: 5px 35px 5px 15px !important;
+  border: solid 1px $gray-color;
+}
+
+.content-div {
+  color: $gray-color;
+  margin-bottom: 20px;
+  background-color: $light-color;
+  padding: 10px 35px 10px 35px !important;
+  border: solid 1px $silver-color;
+
+  .row {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 35px;
+  }
+
+  label {
+    line-height: 20px;
+    font-weight: normal;
+  }
+
+  input {
+    padding-left: 20px;
+    width: 320px;
+    border: none;
+  }
+}
+
+.error-field { border: solid 1px $maroon-color !important; }
+
+.error-message-div {
+  padding-left: 30px;
+  color: $maroon-color;
+}
+
+.col-almost-1 {
+  @extend .col-lg-1;
+  @extend .col-md-1;
+  @extend .col-sm-1;
+}
+
+.col-all-1 {
+  @extend .col-almost-1;
+  @extend .col-xs-1;
+}
+
+.col-almost-2 {
+  @extend .col-lg-2;
+  @extend .col-md-2;
+  @extend .col-sm-2;
+}
+
+.col-all-2 {
+  @extend .col-almost-2;
+  @extend .col-xs-2;
+}
+
+.col-almost-3 {
+  @extend .col-lg-3;
+  @extend .col-md-3;
+  @extend .col-sm-3;
+}
+
+.col-all-3 {
+  @extend .col-almost-3;
+  @extend .col-xs-3;
+}
+
+.col-almost-4 {
+  @extend .col-lg-4;
+  @extend .col-md-4;
+  @extend .col-sm-4;
+}
+
+.col-all-4 {
+  @extend .col-almost-4;
+  @extend .col-xs-4;
+}
+
+.col-almost-5 {
+  @extend .col-lg-5;
+  @extend .col-md-5;
+  @extend .col-sm-5;
+}
+
+.col-all-5 {
+  @extend .col-almost-5;
+  @extend .col-xs-5;
+}
+
+.col-almost-6 {
+  @extend .col-lg-6;
+  @extend .col-md-6;
+  @extend .col-sm-6;
+}
+
+.col-all-6 {
+  @extend .col-almost-6;
+  @extend .col-xs-6;
+}
+
+.col-almost-7 {
+  @extend .col-lg-7;
+  @extend .col-md-7;
+  @extend .col-sm-7;
+}
+
+.col-all-7 {
+  @extend .col-almost-7;
+  @extend .col-xs-7;
+}
+
+.col-almost-8 {
+  @extend .col-lg-8;
+  @extend .col-md-8;
+  @extend .col-sm-8;
+}
+
+.col-all-8 {
+  @extend .col-almost-8;
+  @extend .col-xs-8;
+}
+
+.col-almost-9 {
+  @extend .col-lg-9;
+  @extend .col-md-9;
+  @extend .col-sm-9;
+}
+
+.col-all-9 {
+  @extend .col-almost-9;
+  @extend .col-xs-9;
+}
+
+.col-almost-10 {
+  @extend .col-lg-10;
+  @extend .col-md-10;
+  @extend .col-sm-10;
+}
+
+.col-all-10 {
+  @extend .col-almost-10;
+  @extend .col-xs-10;
+}
+
+.col-almost-12 {
+  @extend .col-lg-12;
+  @extend .col-md-12;
+  @extend .col-sm-12;
+}
+
+.col-all-12 {
+  @extend .col-almost-12;
+  @extend .col-xs-12;
+}
+
+@media (max-width: 1199px) {
+  .order-div { .error-message-div { line-height: 20px; } }
+}
+
+@media (max-width: 991px) {
+  .search-bar-div { margin-bottom: 10px }
+
+  .books-in-cart-container { position: relative !important; }
+
+  .order-div .page-guide-div { margin-top: 20px; }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .books-in-cart-container {
+    padding-left: 120px !important;
+    padding-right: 120px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .filter-div {
+    margin-top: 0 !important;
+    padding-right: 0 !important;
+
+
+    button {
+      height: 60px !important;
+      text-align: center !important;
+    }
+  }
+
+  .categories-dropdown .dropdown-menu {
+    position: relative;
+    border-radius: 0;
+    border: none;
+
+    li { padding: 5px 0; }
+
+    li:not(:last-child) { border-bottom: solid 1px $light-silver-color; }
+  }
+
+  .page-title-div { padding-left: 15px !important; }
+
+  .pagination-div { display: none; }
+
+  #book {
+    .cover { padding: 0 80px 20px 80px; }
+
+    .info .row { display: block; }
+
+    .add-to-cart-content { margin-top: 20px; }
+  }
+
+  .order-div {
+
+    .error-message-div {
+      line-height: 40px;
+      padding-left: 28.5%;
+    }
+  }
+
+  .content-div input { width: 280px; }
+
+  .date {
+    width: 280px !important;
+
+    input { width: 230px !important; }
+  }
+
+  .order-info-div {
+    .info-1 { padding-left: 0; }
+
+    .info-2 {
+      padding-right: 0;
+      text-align: right;
+    }
+  }
+
+  .orders-page .order-content-row .order-content-div .order-details-div { padding-right: 15px; }
+}

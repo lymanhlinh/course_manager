@@ -10,9 +10,14 @@ class Students::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # GET /resource/confirmation?confirmation_token=abcdef
-  # def show
-  #   super
-  # end
+  def show
+    if params[:ready_go].blank?
+      @confirming_user = Student.find_by_confirmation_token(params[:confirmation_token]) if params[:confirmation_token].present?
+      super if !@confirming_user || @confirming_user.confirmed?
+    else
+      super
+    end
+  end
 
   # protected
 

@@ -1,0 +1,33 @@
+.container
+  .row
+    .login_form.col-lg-6.col-md-7.cols-sm-8.col-xs-12
+      .page-guide-div
+        .page-title Login
+      .login-dp
+        .row
+          .col-lg-12
+            = form_for(resource, as: resource_name, url: student_session_path, html: { id: "new_session_form" }) do |f|
+              .form-group
+                = f.email_field :email, autofocus: true, class: "form-control"
+              .form-group
+                = f.password_field :password, autocomplete: "off", class: "form-control"
+              - if @display_captcha
+                = recaptcha_tags
+              .row
+                .col-all-6.forgot-password-div
+                  = link_to "Forgot password", new_student_password_path, class: "forget-password-link"
+                .col-all-6.send-button-div.no-padding-right
+                  =  f.submit "Send", class: "send-button-short",  id: "send_button"
+            %hr
+            .login-facebook-div
+              = button_to "", nil, { class: "login-facebook-button" }
+          .col-lg-12.register-advise-div
+            .register-text-div
+              %span.register_question Are you not registered yet?
+              %br
+              %span In just few steps you can have easy join of our unlimited courses
+            %hr
+            .register-link-div
+              = link_to "Register", new_student_registration_path
+%br
+%br

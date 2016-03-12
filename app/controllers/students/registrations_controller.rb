@@ -1,5 +1,5 @@
 class Students::RegistrationsController < Devise::RegistrationsController
-  prepend_before_filter :require_no_authentication, only: [:edit, :update, :destroy ]
+  # prepend_before_filter :require_no_authentication, only: [:edit, :update, :destroy ]
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 

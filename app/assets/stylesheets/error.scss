@@ -1,0 +1,17 @@
+@import "variables";
+
+.error-page-div {
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  .image-div { text-align: right; }
+
+  .error-title {
+    font-size: 22px;
+    color: $orange-color;
+  }
+
+  .error-title, .error-content { font-weight: bold; }
+
+  .error-content, .error-description { font-size: 17px; }
+}

@@ -1,0 +1,26 @@
+.form.container
+  .row
+    .col-lg-7.col-md-8.col-sm-10.col-xs-12
+      .page-guide-div
+        %span.page-title Change your password
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+        = devise_error_messages!
+        = f.hidden_field :reset_password_token
+        .content-div
+          .row
+            .col-all-4
+              = f.label :password
+            .col-all-8
+              = f.password_field :password, autofocus: true, autocomplete: "off", placeholder: "minimum #{@minimum_password_length} characters"
+          .row
+            .col-all-4
+              = f.label "Confirm Password"
+            .col-all-8
+              = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Retype the password"
+          .row
+        .button-div
+          .col-all-6.cancel-button-div
+            = link_to "Cancel", '#', class: 'cancel-link'
+          .col-all-6.send-button-div.no-padding-right
+            .actions
+              = f.submit "Send", class: "send-button-long", id: "send_button"

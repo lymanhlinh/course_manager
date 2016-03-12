@@ -1,0 +1,20 @@
+.forgot-password-page.container
+  .row
+    .col-lg-6.col-md-7.col-sm-8.col-xs-12
+      .page-guide-div
+        .page-title Forgot Password
+        .page-description Please introduce the email that you used to create your account and
+        we will send you a link to recover your password.
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        .content-div
+          .row
+            .col-all-2
+              = f.label :email
+            .col-all-10
+              = f.email_field :email, autofocus: true, placeholder: "@"
+        .button-div
+          .col-all-2.cancel-button-div
+            = link_to "Cancel", '#', class: "cancel-link"
+          .col-all-10.send-button-div.no-padding-right
+            .actions
+              = f.submit "Send", class: "send-button-long", id: "send_button"

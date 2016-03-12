@@ -1,0 +1,77 @@
+@import "variables";
+
+#header {
+  background-color: $silver-color;
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+
+    .page-title-div {
+      margin-top: 15px;
+      padding-left: 0;
+
+      .page-header-title, .page-header-title:hover {
+        font-size: 25px;
+        margin-left: 0;
+        line-height: 30px;
+        font-weight: bold;
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+
+    .account-div {
+      text-align: right;
+
+      a { line-height: 30px; }
+      
+      .dropdown-menu { z-index: 1001; }
+
+      .registration-link {
+        //background-color: $light-orange-color !important;
+        color: black !important;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .login-div, .register-div { margin-top: 15px }
+
+      .separator { line-height: 60px; }
+
+      .info {
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        .user-name-link {
+          //background-color: $light-orange-color !important;
+          color: black !important;
+          font-size: 14px;
+          font-weight: bold;
+          padding-bottom: 0;
+        }
+      }
+
+      .notification_icon_div {
+        padding-left: 0;
+        text-align: left;
+
+        .notification-button {
+          margin-top:15px;
+          background: url("notification.png");
+          border: none;
+          width: 31px;
+          height: 31px;
+        }
+      }
+    }
+  }
+}
+
+.cancel-button-div, .forgot-password-div {
+  a {
+    font-size: 12pt;
+    color: $emerald-color !important;
+    text-decoration: underline !important;
+  }
+}

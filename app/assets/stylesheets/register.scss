@@ -1,0 +1,80 @@
+@import "bootstrap";
+@import "variables";
+
+#register_form{
+  .date {
+    width: 320px;
+
+    input { width: 270px; }
+  }
+
+  .edit_profile_guide_div {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: solid 1px $light-orange-color;
+    background-color: #fbf0c0;
+  }
+
+  .edit_profile_guide { font-size: 14px; }
+
+  .button-div {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: baseline;
+  }
+
+  .input-group-addon {
+    border-left: solid 1px #ccc !important;
+    border-bottom-left-radius: 4px !important;
+    border-top-left-radius: 4px !important;
+
+  }
+
+  .captcha-row {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.cancel-button-div {
+  padding-left: 0 !important;
+}
+
+.send-button-div {
+  margin: 0;
+  text-align: right;
+
+  .send-button {
+    font-weight: bold;
+    color: white;
+    border: none;
+    height: 32px !important;
+    background: $green-color;
+    border-radius: 2px;
+  }
+
+  .send-button-long {
+    @extend .send-button;
+
+    width: 90px;
+  }
+
+  .send-button-short {
+    @extend .send-button;
+
+    margin-right: 15px;
+    width: 70px;
+  }
+}
+
+.confirmation-div {
+  .content-div {
+    padding: 30px !important;
+
+    .confirmation-link-div {
+      text-align: center;
+      background-color: white;
+      padding: 15px;
+    }
+  }
+}

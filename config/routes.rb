@@ -4,7 +4,16 @@ Rails.application.routes.draw do
   devise_for :redactors
   devise_for :accountants
   devise_for :lectures
-  devise_for :students
+  devise_for :students, controllers: {
+    registrations: "students/registrations",
+    sessions: "students/sessions",
+    # omniauth_callbacks: "omniauth_callbacks",
+    passwords: "students/passwords",
+    confirmations: "students/confirmations" }
+
+  resources :students, only: [] do
+    resource :dashboards, only: :show, controller: 'students/dashboards'
+  end
 
   root "homes#index"
   # The priority is based upon order of creation: first created -> highest priority.
