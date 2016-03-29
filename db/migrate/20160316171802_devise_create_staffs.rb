@@ -1,12 +1,13 @@
-class DeviseCreateLectures < ActiveRecord::Migration
+class DeviseCreateStaffs < ActiveRecord::Migration
   def change
-    create_table(:lectures) do |t|
+    create_table(:staffs) do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       t.string :first_name
       t.string :last_name
+      t.integer :role
       t.string :description
       t.float :salary
       t.integer :salary_period
@@ -40,9 +41,13 @@ class DeviseCreateLectures < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :lectures, :email,                unique: true
-    add_index :lectures, :reset_password_token, unique: true
-    # add_index :lectures, :confirmation_token,   unique: true
-    # add_index :lectures, :unlock_token,         unique: true
+    add_index :staffs, :email,                unique: true
+    add_index :staffs, :reset_password_token, unique: true
+    # add_index :staffs, :confirmation_token,   unique: true
+    # add_index :staffs, :unlock_token,         unique: true
+
+    change_table :courses do |t|
+      t.references :staff, index: true
+    end
   end
 end

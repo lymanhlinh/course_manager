@@ -11,28 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312153916) do
+ActiveRecord::Schema.define(version: 20160316171802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "accountants", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-  end
-
-  add_index "accountants", ["email"], name: "index_accountants_on_email", unique: true, using: :btree
-  add_index "accountants", ["reset_password_token"], name: "index_accountants_on_reset_password_token", unique: true, using: :btree
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -82,14 +64,14 @@ ActiveRecord::Schema.define(version: 20160312153916) do
     t.integer  "max_num_of_students"
     t.integer  "lecture_id"
     t.integer  "class_room_id"
-    t.integer  "redactor_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "staff_id"
   end
 
   add_index "courses", ["class_room_id"], name: "index_courses_on_class_room_id", using: :btree
   add_index "courses", ["lecture_id"], name: "index_courses_on_lecture_id", using: :btree
-  add_index "courses", ["redactor_id"], name: "index_courses_on_redactor_id", using: :btree
+  add_index "courses", ["staff_id"], name: "index_courses_on_staff_id", using: :btree
 
   create_table "courses_students", id: false, force: :cascade do |t|
     t.integer "course_id"
@@ -115,6 +97,11 @@ ActiveRecord::Schema.define(version: 20160312153916) do
   create_table "lectures", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "description"
+    t.float    "salary"
+    t.integer  "salary_period"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -152,9 +139,15 @@ ActiveRecord::Schema.define(version: 20160312153916) do
 
   add_index "lessons", ["course_id"], name: "index_lessons_on_course_id", using: :btree
 
-  create_table "redactors", force: :cascade do |t|
+  create_table "staffs", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "role"
+    t.string   "description"
+    t.float    "salary"
+    t.integer  "salary_period"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -167,12 +160,13 @@ ActiveRecord::Schema.define(version: 20160312153916) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "redactors", ["email"], name: "index_redactors_on_email", unique: true, using: :btree
-  add_index "redactors", ["reset_password_token"], name: "index_redactors_on_reset_password_token", unique: true, using: :btree
+  add_index "staffs", ["email"], name: "index_staffs_on_email", unique: true, using: :btree
+  add_index "staffs", ["reset_password_token"], name: "index_staffs_on_reset_password_token", unique: true, using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "description"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

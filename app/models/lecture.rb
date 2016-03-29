@@ -5,4 +5,6 @@ class Lecture < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :courses, dependent: :destroy
+
+  enum salary_period: [:per_lesson, :per_course, :per_month]
 end

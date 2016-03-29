@@ -1,8 +1,9 @@
-class Redactor < ActiveRecord::Base
+class Staff < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :courses, dependent: :destroy
+  enum role: [:creator, :accountant, :human_resource_manager]
+  enum salary_period: [:per_day, :per_month]
 end
