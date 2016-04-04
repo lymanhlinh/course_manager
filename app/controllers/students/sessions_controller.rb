@@ -9,7 +9,21 @@ class Students::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    super
+    email = params[:student][:email]
+    password = params[:student][:password]
+    admin = AdminUser.find_by(email: email)
+    if admin && admin.valid_password?(password)
+      sign_in admin
+      redirect_to admin_dashboard_path
+    else
+      staff = Staff.find_by(email: email)
+      if staff && staff.valid_password?(password)
+        sign_in staff
+        redirect_to root_path
+      else
+        super
+      end
+    end
   end
 
   # DELETE /resource/sign_out
