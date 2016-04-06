@@ -21,6 +21,11 @@ ActiveAdmin.register Course do
     column :price do |record|
       currency_format(record.price)
     end
+    column :lessons do |record|
+      record.lessons.map do |lesson|
+        auto_link(lesson, "#{lesson.index}: #{lesson.name}" )
+      end.join(', ').html_safe
+    end
     actions
   end
 
@@ -31,10 +36,17 @@ ActiveAdmin.register Course do
       f.input :staff, prompt: 'Select one staff', label: 'Creator'
       f.input :lecture, prompt: 'Select one lecture'
       f.input :description
-      f.input :start_date
-      f.input :end_date
+      f.input :start_date, as: :datepicker
+      f.input :end_date, as: :datepicker
       f.input :max_num_of_students, label: 'Maximum number of students'
       f.input :price
+      f.inputs do
+        f.has_many :lessons, new_record: 'Add Lesson', allow_destroy: true do |l|
+          l.input :index
+          l.input :name
+          l.input :description
+        end
+      end
     end
     f.actions
   end
@@ -57,6 +69,11 @@ ActiveAdmin.register Course do
       row :price do |record|
         currency_format(record.price)
       end
+      row :lessons do |record|
+        record.lessons.map do |lesson|
+          auto_link(lesson, "#{lesson.index}: #{lesson.name}" )
+        end.join(', ').html_safe
+      end
       row :created_at
       row :updated_at
     end
@@ -64,7 +81,7 @@ ActiveAdmin.register Course do
 
   controller do
     def course_params
-      params.require(:course).permit(:class_room_id, :staff_id, :lecture_id, :name, :description, :start_date, :end_date, :max_num_of_students, :price)
+      params.require(:course).permit(:class_room_id, :staff_id, :lecture_id, :name, :description, :start_date, :end_date, :max_num_of_students, :price, lessons_attributes: [:id, :index, :name, :description])
     end
   end
 

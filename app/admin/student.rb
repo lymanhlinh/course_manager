@@ -21,7 +21,7 @@ ActiveAdmin.register Student do
       f.input :password
       f.input :password_confirmation
       f.input :full_name
-      f.input :birth_day
+      f.input :birth_day, as: :datepicker
       f.input :phone_number
       f.input :description
     end
