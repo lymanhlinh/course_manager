@@ -10,9 +10,11 @@ ActiveAdmin.register Lecture do
     column :first_name
     column :last_name
     column :description
-    column :salary
-    column :salary_period do |lecture|
-      lecture.salary_period.titleize.capitalize
+    column :salary do |record|
+      currency_format(record.salary)
+    end
+    column :salary_period do |record|
+      record.salary_period.titleize.capitalize
     end
     actions
   end
@@ -38,9 +40,11 @@ ActiveAdmin.register Lecture do
       row :first_name
       row :last_name
       row :description
-      row :salary
-      row :salary_period do |lecture|
-        lecture.salary_period.titleize.capitalize
+      row :salary do |record|
+        currency_format(record.salary)
+      end
+      row :salary_period do |record|
+        record.salary_period.titleize.capitalize
       end
       row :sign_in_count
       row :current_sign_in_at

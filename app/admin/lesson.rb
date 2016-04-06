@@ -13,5 +13,19 @@ ActiveAdmin.register Lesson do
 #   permitted
 # end
 
+  form do |f|
+    f.inputs do
+      f.input :course, prompt: 'Select one course'
+      f.input :index
+      f.input :name
+      f.input :description
+    end
+    f.actions
+  end
 
+  controller do
+    def lesson_params
+      params.require(:lesson).permit(:course_id, :name, :description, :index)
+    end
+  end
 end

@@ -14,7 +14,9 @@ ActiveAdmin.register Staff do
     column :first_name
     column :last_name
     column :description
-    column :salary
+    column :salary do |record|
+      currency_format(record.salary)
+    end
     column :salary_period do |record|
       record.salary_period.titleize.capitalize
     end
@@ -42,13 +44,15 @@ ActiveAdmin.register Staff do
       row :email
       row :first_name
       row :last_name
-      row :role do |staff|
-        staff.role.titleize
+      row :role do |record|
+        record.role.titleize
       end
       row :description
-      row :salary
-      row :salary_period do |staff|
-        staff.salary_period.titleize.capitalize
+      row :salary do |record|
+        currency_format(record.salary)
+      end
+      row :salary_period do |record|
+        record.salary_period.titleize.capitalize
       end
       row :sign_in_count
       row :current_sign_in_at
