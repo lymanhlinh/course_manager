@@ -7,4 +7,8 @@ class Lecture < ActiveRecord::Base
   has_many :courses, dependent: :destroy
 
   enum salary_period: [:per_lesson, :per_course, :per_month]
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

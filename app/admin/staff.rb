@@ -16,7 +16,7 @@ ActiveAdmin.register Staff do
     column :description
     column :salary
     column :salary_period do |record|
-      record.salary_period.titleize
+      record.salary_period.titleize.capitalize
     end
     actions
   end
@@ -30,7 +30,7 @@ ActiveAdmin.register Staff do
       f.input :first_name
       f.input :last_name
       f.input :description
-      t.input :salary
+      f.input :salary
       f.input :salary_period, as: :select, collection: [:per_day, :per_month].map { |e| [e.to_s.titleize, e] }, include_blank: true, prompt: "Select one period"
     end
     f.actions
@@ -43,12 +43,12 @@ ActiveAdmin.register Staff do
       row :first_name
       row :last_name
       row :role do |staff|
-        ['Creator', 'Accountant', 'Human Resource Manager'][staff.role.to_i]
+        staff.role.titleize
       end
       row :description
       row :salary
       row :salary_period do |staff|
-        ['Per day', 'Per month'][staff.salary_period.to_i]
+        staff.salary_period.titleize.capitalize
       end
       row :sign_in_count
       row :current_sign_in_at

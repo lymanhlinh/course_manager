@@ -6,4 +6,8 @@ class Staff < ActiveRecord::Base
 
   enum role: [:creator, :accountant, :human_resource_manager]
   enum salary_period: [:per_day, :per_month]
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

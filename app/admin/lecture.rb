@@ -12,7 +12,7 @@ ActiveAdmin.register Lecture do
     column :description
     column :salary
     column :salary_period do |lecture|
-      lecture.salary_period.titleize
+      lecture.salary_period.titleize.capitalize
     end
     actions
   end
@@ -40,7 +40,7 @@ ActiveAdmin.register Lecture do
       row :description
       row :salary
       row :salary_period do |lecture|
-        ['Per lesson', 'Per course', 'Per month'][lecture.salary_period.to_i]
+        lecture.salary_period.titleize.capitalize
       end
       row :sign_in_count
       row :current_sign_in_at

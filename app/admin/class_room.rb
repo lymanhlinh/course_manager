@@ -13,5 +13,9 @@ ActiveAdmin.register ClassRoom do
 #   permitted
 # end
 
-
+  controller do
+    def class_room_params
+      params.require(:class_room).permit(:name, :description)
+    end
+  end
 end
