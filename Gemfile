@@ -44,13 +44,13 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+gem 'database_cleaner'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
-  gem 'database_cleaner'
 end
 
 group :development do
