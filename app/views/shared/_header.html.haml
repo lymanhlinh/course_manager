@@ -14,7 +14,11 @@
         - else
           .col-lg-9.col-md-9.col-sm-9.col-xs-9.dropdown.info
             %a.user-name-link.dropdown-toggle{ "data-toggle"=> "dropdown", href: "#" }
-              %span= current_student.full_name
+              - if current_student.avatar.exists?
+                = image_tag current_student.avatar.url(:small)
+                = "&nbsp;#{current_student.first_name}".html_safe
+              - else
+                %span= current_student.full_name
               %span.caret
             %ul.dropdown-menu.bullet.pull-right{ role: "menu" }
               %li

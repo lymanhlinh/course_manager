@@ -34,6 +34,17 @@
     display: flex;
     align-items: center;
   }
+
+  .avatar-row {
+    line-height: 32px;
+    display: flex;
+    align-items: baseline;
+
+    img {
+      width: 200px;
+      margin-right: 10px;
+    }
+  }
 }
 
 .cancel-button-div {
@@ -43,28 +54,28 @@
 .send-button-div {
   margin: 0;
   text-align: right;
+}
 
-  .send-button {
-    font-weight: bold;
-    color: white;
-    border: none;
-    height: 32px !important;
-    background: $green-color;
-    border-radius: 2px;
-  }
+.send-button {
+  font-weight: bold;
+  color: white;
+  border: none;
+  height: 32px !important;
+  background: $green-color;
+  border-radius: 2px;
+}
 
-  .send-button-long {
-    @extend .send-button;
+.send-button-long {
+  @extend .send-button;
 
-    width: 90px;
-  }
+  width: 90px;
+}
 
-  .send-button-short {
-    @extend .send-button;
+.send-button-short {
+  @extend .send-button;
 
-    margin-right: 15px;
-    width: 70px;
-  }
+  margin-right: 15px;
+  width: 70px;
 }
 
 .confirmation-div {

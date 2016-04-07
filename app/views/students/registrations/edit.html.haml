@@ -8,6 +8,16 @@
       = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
         = devise_error_messages!
         .content-div
+          .row.avatar-row
+            .col-all-2
+              = f.label :avatar
+            .col-all-10
+              - if resource.avatar.exists?
+                = image_tag resource.avatar.url(:medium), id: 'avatar-img'
+              - else
+                = image_tag resource.avatar.url(:medium), id: 'avatar-img', class: 'hidden'
+              = f.file_field :avatar, class: 'hidden'
+              = button_tag 'Upload', id: 'upload-btn', type: 'button', class: 'send-button-long'
           .row
             .col-all-2
               = f.label "Full name"
@@ -38,7 +48,7 @@
               = f.label :birth_day, value: "Birth day"
             .col-all-10
               .datetimepicker.input-group.date
-                = f.text_field :birth_day, placeholder: 'dd/mm/yyyy', value: current_student.birth_day.strftime('%d/%b/%a')
+                = f.text_field :birth_day, placeholder: 'dd/mm/yyyy', value: (current_student.birth_day.strftime('%d/%b/%a') if current_student.birth_day)
                 %span.input-group-addon
                   %span.glyphicon.glyphicon-calendar
           .row

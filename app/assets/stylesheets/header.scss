@@ -24,7 +24,7 @@
     .account-div {
       text-align: right;
 
-      a { line-height: 30px; }
+      a { line-height: 40px; }
       
       .dropdown-menu { z-index: 1001; }
 
@@ -40,8 +40,8 @@
       .separator { line-height: 60px; }
 
       .info {
-        margin-top: 15px;
-        margin-bottom: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
 
         .user-name-link {
           //background-color: $light-orange-color !important;
@@ -49,6 +49,11 @@
           font-size: 14px;
           font-weight: bold;
           padding-bottom: 0;
+
+          img {
+            width: 40px;
+            border-radius: 2px;
+          }
         }
       }
 
