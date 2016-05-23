@@ -4,7 +4,7 @@ DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
-Student.create(email: 'student@example.com', password: 'password', password_confirmation: 'password', full_name: 'Nguyen Van A')
+Student.create(email: 'student@example.com', password: 'password', password_confirmation: 'password', full_name: 'Nguyen Van A', confirmed_at: Time.current)
 Staff.create(email: 'staff@example.com',  password: 'password', password_confirmation: 'password', role: :creator, first_name: 'B', last_name: 'Nguyen Thi', description: 'New staff. Good communication skill.', salary: 5000000, salary_period: :per_month)
 Lecture.create(email: 'lecture@example.com',  password: 'password', password_confirmation: 'password', first_name: 'C', last_name: 'Bui Van', description: 'New lecture. Good technical skill.', salary: 200000, salary_period: :per_lesson)
 ClassRoom.create(name: 'Room A', description: '40m2, good for about 30 students.', price: '2000000', price_period: :per_month)

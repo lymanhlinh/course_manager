@@ -20,9 +20,24 @@
               = button_tag 'Upload', id: 'upload-btn', type: 'button', class: 'send-button-long'
           .row
             .col-all-2
-              = f.label "Full name"
+              = f.label "First name"
             .col-all-10
-              = f.text_field :full_name, autofocus: true, placeholder: 'Full name', value: resource.full_name
+              = f.text_field :first_name, autofocus: true, placeholder: 'First name', value: resource.first_name
+          .row
+            .col-all-2
+              = f.label "Last name"
+            .col-all-10
+              = f.text_field :last_name, autofocus: true, placeholder: 'Last name', value: resource.last_name
+          .row
+            .col-all-2
+              = f.label "Role"
+            .col-all-10
+              = label_tag :role, resource.role.titleize
+          .row
+            .col-all-2
+              = f.label "Salary"
+            .col-all-10
+              = label_tag :role, currency_format(resource.salary)
           .row
             .col-all-2
               = f.label :email

@@ -11,11 +11,11 @@ readURL = (input) ->
   return
 
 $ ->
-  $('#student_avatar').change ->
+  $('.avatar-file').change ->
     readURL this
     return
 
 
   $('#upload-btn').on 'click', (e) ->
     e.preventDefault
-    $('#student_avatar').click()
+    $('.avatar-file').click()
