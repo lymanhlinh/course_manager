@@ -1,0 +1,20 @@
+#creator_dashboard.container
+  .menu-header
+    = label_tag nil, nil, class: 'search-icon'
+    = text_field_tag :search_term, '', placeholder: 'Filter courses and lessons', class: 'search-bar'
+    .new-course
+      .tooltiptext Create new course
+  .content
+    .courses-group
+      %h4 My courses
+      .courses-list
+        - current_user.courses.each_with_index do |course, index|
+          .row{ class: "#{index.even? ? 'even' : 'odd'}"}
+            .col-all-6
+              = course.name
+            .col-all-3
+              = "#{course.lessons.count} lessons"
+            .col-all-3.updated-at
+              = date_format(course.updated_at)
+    .courses-group
+      %h4 Others

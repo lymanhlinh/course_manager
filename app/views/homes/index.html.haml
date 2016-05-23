@@ -1,20 +1,2 @@
--#.container
--#  .row
--#    .dropdown
--#      .dropdown-toggle{"data-toggle" => "dropdown"}
--#        Login
--#        %span.caret
--#      %ul.dropdown-menu
--#        %li
--#          = link_to "as Student", new_student_session_path
--#        %li
--#          = link_to "as Staff", '#'
--#          = link_to '#', {class: 'dropdown-item' }
--#- if student_signed_in?
--#  = link_to "Sign out", destroy_student_session_path, method: :delete
--#- else
--#  = link_to 'Sign in', new_student_session_path
--#  .question You are student?
--#  = link_to "Sign up", new_student_registration_path
--#  .question
--#  = link_to 'You are admin?', new_admin_user_session_path
+- if current_user.is_a?(Staff) && current_user.creator?
+  = render 'staffs/creators/dashboard'

@@ -15,4 +15,8 @@ module ApplicationHelper
   def currency_format(number)
     number_to_currency(number, unit: 'vnd', precision: 0, format: "%n %u")
   end
+
+  def date_format(time)
+    time.strftime('%d/%b/%a')
+  end
 end
