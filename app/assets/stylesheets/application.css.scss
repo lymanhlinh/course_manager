@@ -26,6 +26,10 @@
 
 body {
   font-family: $common-font;
+
+  input, button {
+    outline: none;
+  }
 }
 
 .devise_error_div {

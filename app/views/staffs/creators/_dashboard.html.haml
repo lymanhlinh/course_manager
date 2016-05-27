@@ -1,20 +1,39 @@
+- my_courses = @courses.created_by(current_staff)
+- other_courses = @courses.not_created_by(current_staff)
 #creator_dashboard.container
   .menu-header
-    = label_tag nil, nil, class: 'search-icon'
+    = button_tag '', class: 'search-button'
     = text_field_tag :search_term, '', placeholder: 'Filter courses and lessons', class: 'search-bar'
-    .new-course
+    = button_tag '', class: 'add-button' do
       .tooltiptext Create new course
   .content
-    .courses-group
-      %h4 My courses
-      .courses-list
-        - current_user.courses.each_with_index do |course, index|
-          .row{ class: "#{index.even? ? 'even' : 'odd'}"}
-            .col-all-6
-              = course.name
-            .col-all-3
-              = "#{course.lessons.count} lessons"
-            .col-all-3.updated-at
-              = date_format(course.updated_at)
-    .courses-group
-      %h4 Others
+    - if my_courses.present?
+      .courses-group
+        %h4 My courses
+        .courses-list
+          - my_courses.each_with_index do |course, index|
+            .row{ class: "#{index.even? ? 'even' : 'odd'}"}
+              .col-all-5
+                = course.name
+              .col-all-2
+                = "#{course.lessons.count} lessons"
+              .col-all-2.updated-at
+                = date_format(course.updated_at)
+              .col-all-1.times
+                = '0 times' #todo
+              .col-all-2.buttons
+                = button_tag '', class: 'view-button'
+                = button_tag '', class: 'edit-button'
+                = button_tag '', class: 'delete-button'
+    - if other_courses.present?
+      .courses-group
+        %h4 Others
+        .courses-list
+          - other_courses.each_with_index do |course, index|
+            .row{ class: "#{index.even? ? 'even' : 'odd'}"}
+              .col-all-6
+                = course.name
+              .col-all-3
+                = "#{course.lessons.count} lessons"
+              .col-all-3.updated-at
+                = date_format(course.updated_at)

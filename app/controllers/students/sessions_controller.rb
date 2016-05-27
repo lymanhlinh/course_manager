@@ -19,7 +19,7 @@ class Students::SessionsController < Devise::SessionsController
       staff = Staff.find_by(email: email)
       if staff && staff.valid_password?(password)
         sign_in staff
-        redirect_to root_path
+        redirect_to staff_dashboards_path
       else
         super
       end

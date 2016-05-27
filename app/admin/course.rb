@@ -2,7 +2,6 @@ ActiveAdmin.register Course do
   filter :name
   filter :class_room
   filter :staff, label: 'Creator'
-  filter :lecture
   filter :name
   filter :description
   filter :start_date
@@ -13,7 +12,6 @@ ActiveAdmin.register Course do
     column :name
     column :class_room
     column 'Creator', :staff
-    column :lecture
     column :description
     column :start_date
     column :end_date
@@ -34,7 +32,6 @@ ActiveAdmin.register Course do
       f.input :name
       f.input :class_room, prompt: 'Select one class room'
       f.input :staff, prompt: 'Select one staff', label: 'Creator'
-      f.input :lecture, prompt: 'Select one lecture'
       f.input :description
       f.input :start_date, as: :datepicker
       f.input :end_date, as: :datepicker
@@ -59,7 +56,6 @@ ActiveAdmin.register Course do
       row 'Creator' do |record|
         record.staff
       end
-      row :lecture
       row :description
       row :start_date
       row :end_date
@@ -81,7 +77,7 @@ ActiveAdmin.register Course do
 
   controller do
     def course_params
-      params.require(:course).permit(:class_room_id, :staff_id, :lecture_id, :name, :description, :start_date, :end_date, :max_num_of_students, :price, lessons_attributes: [:id, :index, :name, :description])
+      params.require(:course).permit(:class_room_id, :staff_id, :name, :description, :start_date, :end_date, :max_num_of_students, :price, lessons_attributes: [:id, :index, :name, :description])
     end
   end
 

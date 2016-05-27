@@ -17,6 +17,6 @@ module ApplicationHelper
   end
 
   def date_format(time)
-    time.strftime('%d/%b/%a')
+    time.strftime('%d/%m/%Y')
   end
 end

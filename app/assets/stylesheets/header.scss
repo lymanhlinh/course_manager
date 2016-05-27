@@ -64,9 +64,11 @@
         .notification-button {
           margin-top:15px;
           background: url("notification.png");
+          background-size: contain;
+          background-repeat: no-repeat;
           border: none;
-          width: 31px;
-          height: 31px;
+          width: 35px;
+          height: 35px;
         }
       }
     }

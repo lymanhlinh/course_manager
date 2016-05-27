@@ -7,5 +7,8 @@ class Course < ActiveRecord::Base
 
   accepts_nested_attributes_for :lessons
 
-  validates :name, :class_room, :staff, :lecture, :start_date, :end_date, :max_num_of_students, :price, presence: true
+  validates :name, :class_room, :staff, :start_date, :end_date, :max_num_of_students, :price, presence: true
+
+  scope :created_by, -> (staff) { where(staff: staff) }
+  scope :not_created_by, -> (staff) { where.not(staff: staff) }
 end

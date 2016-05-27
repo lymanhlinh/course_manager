@@ -1,0 +1,106 @@
+@import "variables";
+
+#creator_dashboard {
+  .view-button, .edit-button, .delete-button, .search-button, .add-button {
+    border: none;
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    margin-left: 10px;
+  }
+
+
+  .menu-header {
+    display: flex;
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
+
+    .search-button {
+      //width: 30px;
+      //height: 30px;
+      background-image: url('search.png'); //#7E8082
+    }
+
+    .add-button {
+      //width: 30px;
+      //height: 30px;
+      background-image: url('plus.png');
+
+      .tooltiptext {
+        margin-top: 15px;
+        visibility: hidden;
+        width: 120px;
+        background-color: #eeeeee;
+        color: #7E8082;
+        text-align: center;
+        border-radius: 6px;
+        padding: 3px 0;
+        position: absolute;
+        z-index: 1;
+      }
+
+      &:hover .tooltiptext {
+        visibility: visible;
+      }
+    }
+
+    .search-bar {
+      width: 100%;
+      height: 30px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555555;
+      background-color: #fff;
+      background-image: none;
+      border: 0;
+
+      &:focus {
+        border: none;
+      }
+    }
+  }
+
+  .content {
+    .courses-group {
+      margin: 20px 0;
+
+      .courses-list {
+        padding: 15px;
+
+        .row {
+          margin-left: 0;
+          padding: 7px 0;
+          border-bottom: 1px solid #eeeeee;
+
+          div {
+            padding-top: 5px;
+          }
+
+          .buttons {
+            padding-top: 0;
+            text-align: right;
+
+            .view-button {
+              background-image: url('view.png'); //#7E8082
+              background-position-y: 4px;
+            }
+
+            .edit-button {
+              height: 22px;
+              background-image: url('pencil.png'); //#7E8082
+            }
+
+            .delete-button {
+              height: 22px;
+              background-image: url('remove.png'); //#7E8082
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
