@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523092214) do
+ActiveRecord::Schema.define(version: 20161231024255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,22 +58,30 @@ ActiveRecord::Schema.define(version: 20160523092214) do
     t.integer  "price_period"
   end
 
-  create_table "courses", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
+  create_table "course_instances", force: :cascade do |t|
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "max_num_of_students"
     t.integer  "lecture_id"
     t.integer  "class_room_id"
+    t.integer  "course_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  add_index "course_instances", ["class_room_id"], name: "index_course_instances_on_class_room_id", using: :btree
+  add_index "course_instances", ["course_id"], name: "index_course_instances_on_course_id", using: :btree
+  add_index "course_instances", ["lecture_id"], name: "index_course_instances_on_lecture_id", using: :btree
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "staff_id"
     t.float    "price"
   end
 
-  add_index "courses", ["class_room_id"], name: "index_courses_on_class_room_id", using: :btree
-  add_index "courses", ["lecture_id"], name: "index_courses_on_lecture_id", using: :btree
   add_index "courses", ["staff_id"], name: "index_courses_on_staff_id", using: :btree
 
   create_table "courses_students", id: false, force: :cascade do |t|
@@ -119,6 +127,22 @@ ActiveRecord::Schema.define(version: 20160523092214) do
 
   add_index "lectures", ["email"], name: "index_lectures_on_email", unique: true, using: :btree
   add_index "lectures", ["reset_password_token"], name: "index_lectures_on_reset_password_token", unique: true, using: :btree
+
+  create_table "lesson_instances", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "lecture_id"
+    t.integer  "class_room_id"
+    t.integer  "course_instance_id"
+    t.integer  "lesson_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "lesson_instances", ["class_room_id"], name: "index_lesson_instances_on_class_room_id", using: :btree
+  add_index "lesson_instances", ["course_instance_id"], name: "index_lesson_instances_on_course_instance_id", using: :btree
+  add_index "lesson_instances", ["lecture_id"], name: "index_lesson_instances_on_lecture_id", using: :btree
+  add_index "lesson_instances", ["lesson_id"], name: "index_lesson_instances_on_lesson_id", using: :btree
 
   create_table "lesson_videos", force: :cascade do |t|
     t.string   "url"

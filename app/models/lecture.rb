@@ -4,7 +4,7 @@ class Lecture < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :courses, dependent: :destroy
+  has_many :course_instances, dependent: :destroy
 
   enum salary_period: [:per_lesson, :per_course, :per_month]
 
