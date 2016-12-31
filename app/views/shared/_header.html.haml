@@ -1,16 +1,23 @@
 #header
   #content.container
     #content_row.navbar-collapse.row
-      .col-lg-9.col-md-8.col-sm-8.col-xs-6.page-title-div
-        = link_to "Looneyes Courses Manager", root_path, class: "page-header-title"
+      .col-lg-9.col-md-8.col-sm-8.col-xs-6.contact-information
+        .have-any-question
+          Have any question?
+        .phone
+          %i.fa-telephone
+          %a{href: 'tel:84968220460'} 0968 220 460
+        .email
+          %i.fa-envelope
+          %a{href: 'mailto:support@looneyes.com'} support@looneyes.com
       .col-lg-3.col-md-4.col-sm-4.col-xs-6.account-div
         - if !user_signed_in?
-          .col-lg-6.col-md-6.col-sm-6.col-xs-6.login-div
-            = render "students/sessions/new"
-          .col-lg-2.col-md-2.col-sm-2.col-xs-2.separator
+          .col-all-9.register-div
+            = link_to "Register", new_registration_path(Student), class: "registration-link"
+          .col-all-1.separator
             |
-          .col-lg-4.col-md-4.col-sm-4.col-xs-4.register-div
-            = link_to "register", new_registration_path(Student), class: "registration-link"
+          .col-all-2.login-div
+            = render "students/sessions/new"
         - else
           .col-lg-9.col-md-9.col-sm-9.col-xs-9.dropdown.info
             %a.user-name-link.dropdown-toggle{ "data-toggle"=> "dropdown", href: "#" }

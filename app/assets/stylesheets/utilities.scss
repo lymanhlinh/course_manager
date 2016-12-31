@@ -7,3 +7,22 @@
 .flex-div { display: flex; }
 
 .stretch-div { align-items: stretch; }
+
+.fa-telephone::before {
+  background-image: url('telephone');
+  background-size: 11px 11px;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  content:"";
+}
+
+.fa-envelope::before {
+  background-image: url('envelope');
+  background-size: 13px 11px;
+  display: inline-block;
+  width: 13px;
+  height: 10px;
+  content:"";
+}
+

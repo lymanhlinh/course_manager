@@ -1,43 +1,58 @@
 @import "variables";
 
 #header {
-  background-color: $silver-color;
+  font-size: 13px;
+  background-color: black;
+  color: white;
 
   .container {
     padding-left: 0;
     padding-right: 0;
 
-    .page-title-div {
-      margin-top: 15px;
+    .contact-information {
       padding-left: 0;
+      line-height: 45px;
+      color: $silver-color;
+      font-weight: bold;
 
-      .page-header-title, .page-header-title:hover {
-        font-size: 25px;
-        margin-left: 0;
-        line-height: 30px;
-        font-weight: bold;
-        color: inherit;
-        text-decoration: none;
+      div { display: inline; }
+
+      .phone, .email {
+        padding-left: 10px;
+        font-weight: normal;
+
+        a { color: white !important; }
+
+        i { margin-right: 2px;}
       }
     }
 
     .account-div {
+      padding-right: 0;
       text-align: right;
 
-      a { line-height: 40px; }
+      a { line-height: 45px; }
       
       .dropdown-menu { z-index: 1001; }
 
       .registration-link {
-        //background-color: $light-orange-color !important;
-        color: black !important;
-        font-size: 14px;
+        color: white !important;
         font-weight: bold;
       }
 
-      .login-div, .register-div { margin-top: 15px }
+      .separator { color: $silver-color; }
 
-      .separator { line-height: 60px; }
+      .register-div { padding-right: 0; }
+
+      .login-div {
+        padding-right: 0;
+        padding-left: 0;
+      }
+
+      .separator {
+        line-height: 45px;
+        padding: 0 2px 0 0;
+      }
 
       .info {
         margin-top: 10px;
