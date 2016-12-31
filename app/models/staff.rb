@@ -11,7 +11,7 @@ class Staff < ActiveRecord::Base
                     :storage => :s3,
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
-  has_many :courses
+  has_many :courses, dependent: :destroy
 
   def s3_credentials
     {:bucket => "linhly", :access_key_id => ENV['s3_access_key_id'], :secret_access_key => ENV['s3_secret_access_key']}
